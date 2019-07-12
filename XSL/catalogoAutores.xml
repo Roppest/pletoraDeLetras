@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<catalogoAutores xsi:noNamespaceSchemaLocation="catalogoAutoresTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<autor clave="A001">
+		<nombre>J.K. Rowling</nombre>
+		<fechaNacimiento>1960-02-12</fechaNacimiento>
+		<nacionalidad>Inglesa</nacionalidad>
+		<semblanza>Nacida en uan familia de escasos recurtsos en Bristol, Reino Unido. La joven Joanne a los 27 años publicó uno de los libros más bendidos en la historia.</semblanza>
+		<fotoAutor>Rowling.jpg</fotoAutor>
+		<libros>9788700631625,9780439324663,9788478888566</libros>
+	</autor>
+</catalogoAutores>

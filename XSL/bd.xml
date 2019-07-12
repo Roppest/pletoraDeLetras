@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bd>
+  <autor clabe ="12abXZ">
+    <nombre>Test Autor</nombre>
+    <fechaNacimiento>01011980</fechaNacimiento>
+    <nacionalidad>Testeano</nacionalidad>
+    <semblanza>Duis consequat nulla non enim luctus maximus. Pellentesque iaculis in magna in rutrum. Ut suscipit, eros id vulputate elementum, nisl dui consequat tellus, et feugiat massa nisi sit amet felis. Cras fermentum arcu odio, sed sollicitudin sem finibus a. Nam in tristique diam, at tempus magna. Ut semper lobortis ipsum in placerat. Proin suscipit massa id justo. </semblanza>
+    <foto>imgs/12abXZ</foto>
+  </autor>
+
+  <libro isbn="1234567890123">
+    <titulo>Libro Test</titulo>
+    <resumen>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate libero a cursus blandit. Integer felis erat, maximus nec turpis ut, ullamcorper feugiat lacus. Nullam scelerisque iaculis elit, at blandit nulla vehicula eu. Nam varius pellentesque ligula nec tincidunt. Cras lacinia ornare nibh sed faucibus. Mauris elit ipsum, maximus eget viverra sit amet, imperdiet ut leo. Mauris egestas velit in odio cursus condimentum. Phasellus at efficitur lectus. Nam id urna eu turpis varius vehicula vel non nibh. Pellentesque et rutrum massa. Nulla euismod arcu non cursus mattis. Suspendisse venenatis pretium leo, quis facilisis ipsum bibendum sed.
+    <resumen>
+    <tema>Tema test</tema>
+    <idioma>Testañol</idioma>
+    <anioPublicacion>2000</anioPublicacion>
+    <editorial>Test Impresiones</editorial>
+    <ciudad>Ciudad Test</ciudad>
+    <pais>Testolandia</pais>
+    <foto>imgs/1234567890123.jpg</foto>
+    <autores>12abXZ 23bcXY</autores>
+  </libro>
+</bd>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<catalogoLibros xsi:noNamespaceSchemaLocation="catalogoLibrosTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<libro isbn="1234567890123">
+		<titulo>Harry Potter</titulo>
+		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<añoPublicacion>2005</añoPublicacion>
+		<editorial>McGraw Hill</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>México</paisPublicacion>
+		<fotoPortada>HarryPotter5.jpg</fotoPortada>
+	</libro>
+</catalogoLibros>

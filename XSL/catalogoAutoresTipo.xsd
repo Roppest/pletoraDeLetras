@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="catalogoAutores" type="tipoCatalogoAutores"/>
+	
+	<xs:complexType name="tipoCatalogoAutores">	
+		<xs:sequence>
+			<xs:element name="autor" type="tipoAutor" minOccurs="1" maxOccurs="5"/>
+		</xs:sequence>
+		
+	</xs:complexType>
+	<xs:complexType name="tipoAutor">
+		<xs:sequence>
+			<xs:element name="nombre" type="xs:string"/>
+			<xs:element name="fechaNacimiento" type="xs:date"/>
+			<xs:element name="nacionalidad" type="xs:string"/>
+			<xs:element name="semblanza" type="xs:string"/>
+			<xs:element name="fotoAutor" type="xs:string"/>
+			<xs:element name="libros" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="clave">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[A-Z][0-9][0-9][0-9]"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>
