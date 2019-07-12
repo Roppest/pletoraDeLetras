@@ -2,12 +2,12 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<xs:element name="catalogoLibros" type="tipoCatalogoLibros"/>
-
-	<xs:complexType name="tipoCatalogoLibros">
+	
+	<xs:complexType name="tipoCatalogoLibros">	
 		<xs:sequence>
 			<xs:element name="libro" type="tipoLibro" minOccurs="1" maxOccurs="5"/>
 		</xs:sequence>
-
+		
 	</xs:complexType>
 	<xs:complexType name="tipoLibro">
 		<xs:sequence>
@@ -15,7 +15,7 @@
 			<xs:element name="resumen" type="xs:string"/>
 			<xs:element name="tema" type="xs:string"/>
 			<xs:element name="idioma" type="xs:string"/>
-			<xs:element name="añoPublicacion" type="xs:integer"/>
+			<xs:element name="anioPublicacion" type="xs:integer"/>
 			<xs:element name="editorial" type="xs:string"/>
 			<xs:element name="ciudad" type="xs:string"/>
 			<xs:element name="paisPublicacion" type="xs:string"/>
@@ -23,10 +23,8 @@
 		</xs:sequence>
 		<xs:attribute name="isbn">
 			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:pattern value="[0-9]{13}"/>
+				<xs:restriction base="xs:long">
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
-</xs:schema>
