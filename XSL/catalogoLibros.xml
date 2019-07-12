@@ -1,14 +1,36 @@
 <?xml version="1.0"?>
 <catalogoLibros xsi:noNamespaceSchemaLocation="catalogoLibrosTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<libro isbn="1234567890123">
-		<titulo>Harry Potter</titulo>
+	<libro isbn="9788700631625">
+		<titulo>Harry Potter y el Caliz del Fuego</titulo>
 		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
 		<tema>Fantasia</tema>
 		<idioma>Inglés</idioma>
-		<añoPublicacion>2005</añoPublicacion>
-		<editorial>McGraw Hill</editorial>
+		<añoPublicacion>2000</añoPublicacion>
+		<editorial>Salamandra</editorial>
 		<ciudad>México</ciudad>
-		<paisPublicacion>México</paisPublicacion>
+		<paisPublicacion>UK</paisPublicacion>
+		<fotoPortada>HarryPotter4.jpg</fotoPortada>
+	</libro>
+	<libro isbn="9780439324663">
+		<titulo>Harry Potter y la Orden del Fenix</titulo>
+		<resumen>Harry es un mago y ya esta en su quinto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<añoPublicacion>2003</añoPublicacion>
+		<editorial>Salamandra</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>UK</paisPublicacion>
 		<fotoPortada>HarryPotter5.jpg</fotoPortada>
+	</libro>
+	<libro isbn="9788478888566">
+		<titulo>Harry Potter y el Principe Mestizo</titulo>
+		<resumen>Harry es un mago y ya esta en su sexto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<añoPublicacion>2005</añoPublicacion>
+		<editorial>Salamandra</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>UK</paisPublicacion>
+		<fotoPortada>HarryPotter6.jpg</fotoPortada>
 	</libro>
 </catalogoLibros>
