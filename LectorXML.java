@@ -21,7 +21,7 @@ public class LectorXML
   */
   public void obtenerLibros()
   {
-    try
+     try
     {
       SAXBuilder constructor = new SAXBuilder();
       Document doc = constructor.build(rutaLibros);
@@ -48,30 +48,40 @@ public class LectorXML
             Element libroEnTurno = (Element)listaOrdenada.get(i);
             //obtenemos el año del libro en turno
             int anioEnTurno = Integer.parseInt(libroEnTurno.getChild("anioPublicacion").getText());
-            //si el año del libro en turno es menor al año del libro que queremos acomodar
-            //y si en la siguiente iteración no termina el for
-            if(anioEnTurno < anioPublicacion && i+1 != listaOrdenada.size()){
-              continue;
-            }else{
-              //sin embargo, si el año del libro a acomodar es mayor al año del libro en turno
-              //o si ya llegamos al final de la lista, entonces lo agregamos
+            //si son del mismo año, lo agregamos de una vez
+            if(anioEnTurno == anioPublicacion){
               listaOrdenada.add(i, libro);
               break;
+            }else{
+            //si el año del libro en turno es menor al año del libro que queremos acomodar
+              if(anioEnTurno < anioPublicacion){
+                //y si en la siguiente iteración termina el for
+                if(i+1 == listaOrdenada.size()){
+                  //lo agregamos al final
+                  listaOrdenada.add(i+1, libro);
+                  break;  
+                }else{//sino, seguimos
+                  continue;  
+                }
+              }else{
+                //sin embargo, si el año del libro a acomodar es mayor al año del libro en turno
+                listaOrdenada.add(i, libro);
+                break;
+              }
             }
           }
         }
       }
 
-      for(int i = 0; i < listaOrdenada.size(); i++){
-        System.out.println(listaOrdenada.get(i).getChild("anioPublicacion").getText());
-      }
-      //return libros;
+        return listaOrdenada;
 
     }catch(IOException e){e.printStackTrace();
+
     }catch(JDOMException e){e.printStackTrace();
+
     }
 
-    
+    return null;
   }
 
   //public  extraeLibros();
