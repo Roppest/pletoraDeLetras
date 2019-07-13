@@ -1,27 +1,5 @@
 <?xml version="1.0"?>
 <catalogoLibros xsi:noNamespaceSchemaLocation="catalogoLibrosTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<libro isbn="9788700631625">
-		<titulo>Harry Potter y el Caliz del Fuego</titulo>
-		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>2000</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter4.jpg</fotoPortada>
-	</libro>
-	<libro isbn="9780439324663">
-		<titulo>Harry Potter y la Orden del Fenix</titulo>
-		<resumen>Harry es un mago y ya esta en su quinto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>2003</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter5.jpg</fotoPortada>
-	</libro>
 	<libro isbn="9788478888566">
 		<titulo>Harry Potter y el Principe Mestizo</titulo>
 		<resumen>Harry es un mago y ya esta en su sexto año.</resumen>
@@ -32,5 +10,60 @@
 		<ciudad>México</ciudad>
 		<paisPublicacion>UK</paisPublicacion>
 		<fotoPortada>HarryPotter6.jpg</fotoPortada>
+	</libro>
+	<libro isbn="9780439324663">
+		<titulo>Harry Potter y la Orden del Fenix</titulo>
+		<resumen>Harry es un mago y ya esta en su quinto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<anioPublicacion>2000</anioPublicacion>
+		<editorial>Salamandra</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>UK</paisPublicacion>
+		<fotoPortada>HarryPotter5.jpg</fotoPortada>
+	</libro>
+	<libro isbn="9788700631625">
+		<titulo>Harry Potter y el Caliz del Fuego</titulo>
+		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<anioPublicacion>2003</anioPublicacion>
+		<editorial>Salamandra</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>UK</paisPublicacion>
+		<fotoPortada>HarryPotter4.jpg</fotoPortada>
+	</libro>
+	<libro isbn="9781100631625">
+		<titulo>Harry Potter y el Caliz del Fuego</titulo>
+		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<anioPublicacion>2005</anioPublicacion>
+		<editorial>Salamandra</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>UK</paisPublicacion>
+		<fotoPortada>HarryPotter4.jpg</fotoPortada>
+	</libro>
+	<libro isbn="9712700631625">
+		<titulo>Harry Potter y el Caliz del Fuego</titulo>
+		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<anioPublicacion>1992</anioPublicacion>
+		<editorial>Salamandra</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>UK</paisPublicacion>
+		<fotoPortada>HarryPotter4.jpg</fotoPortada>
+	</libro>
+	<libro isbn="9788732631625">
+		<titulo>Harry Potter y el Caliz del Fuego</titulo>
+		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
+		<tema>Fantasia</tema>
+		<idioma>Inglés</idioma>
+		<anioPublicacion>2050</anioPublicacion>
+		<editorial>Salamandra</editorial>
+		<ciudad>México</ciudad>
+		<paisPublicacion>UK</paisPublicacion>
+		<fotoPortada>HarryPotter4.jpg</fotoPortada>
 	</libro>
 </catalogoLibros>
