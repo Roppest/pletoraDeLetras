@@ -84,12 +84,40 @@ public class LectorXML
     return null;
   }
 
+  public Element obtenerLibro(String isbn){
+
+    try
+    {
+      SAXBuilder constructor = new SAXBuilder();
+      Document doc = constructor.build(rutaLibros);
+
+      Element raiz = doc.getRootElement();
+      List libros = raiz.getChildren("libro");
+      Iterator it = libros.iterator();
+
+      while(it.hasNext()){
+        Element libro = (Element)it.next();
+        if(libro.getAttributeValue("isbn").equals(isbn)){
+          System.out.println("LO ENCONTRO");
+          return libro;
+        }
+      }
+      
+    }catch(IOException e){e.printStackTrace();
+
+    }catch(JDOMException e){e.printStackTrace();
+
+    }
+    return null;
+  }
+
   //public  extraeLibros();
   public static void main(String[] args) 
   {
     LectorXML test = new LectorXML();
     test.obtenerLibros();
-
+    Element libro = test.obtenerLibro("9788478888566");
+    System.out.println(libro.getChild("titulo").getText());
   }
 
 
