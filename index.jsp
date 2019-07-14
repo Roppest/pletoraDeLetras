@@ -1,8 +1,3 @@
-<%--
-    Document   : pletoraDeLetras
-    Created on : Jul 4, 2019, 11:02:31 AM
-    Author     : Rodrigo Vázquez & Javier Erazo
---%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Iterator,java.util.List,java.util.ArrayList,lector.LectorXML, org.jdom.Element"%>
@@ -67,7 +62,7 @@
           <tr>
             <td class="tituloLibro"><a href="libroVisualizado.jsp?isbn=<%=libro.getAttribute("isbn").getValue()%>"> <%=libro.getChild("titulo").getText()%></a></td>
             <td class="anioLibro"> <%=libro.getChild("anioPublicacion").getText()%></td>
-            <td> <a href="elminarLibro.jsp?isbn=<%=libro.getAttribute("isbn").getValue()%>">
+            <td> <a href="eliminarLibro.jsp?isbn=<%=libro.getAttribute("isbn").getValue()%>">
                 <img src="imgs/borrar.png"/>
                 </a>
           </tr>
