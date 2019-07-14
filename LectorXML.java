@@ -98,11 +98,10 @@ public class LectorXML
       while(it.hasNext()){
         Element libro = (Element)it.next();
         if(libro.getAttributeValue("isbn").equals(isbn)){
-          System.out.println("LO ENCONTRO");
           return libro;
         }
       }
-      
+
     }catch(IOException e){e.printStackTrace();
 
     }catch(JDOMException e){e.printStackTrace();
