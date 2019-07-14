@@ -16,11 +16,11 @@
 		<titulo>Sistemas Distribuidos</titulo>
 		<resumen>En esta nueva edición se agregó un capítulo independiente sobre arquitecturas para reflejar el progreso que se ha dado en la organización de sistemas distribuidos. Otra diferencia importante es que ahora existe mucho más material acerca de sistemas descentralizados, en especial sobre computación de igual a igual (peer-to-peer)</resumen>
 		<tema>Sistemas Distribuidos</tema>
-		<idioma>Espaniol<idioma>
+		<idioma>Espaniol</idioma>
 		<anioPublicacion>2007</anioPublicacion>
 		<editorial>Pearson</editorial>
 		<ciudad>California</ciudad>
-		<paisPublicacion>EUA<paisPublicacion>
+		<paisPublicacion>EUA</paisPublicacion>
 		<fotoPortada>sistemasDistribuidos.jpg</fotoPortada>
 		<autores>T401,M401</autores>
 	</libro>
@@ -28,11 +28,11 @@
                 <titulo>Database System Concepts</titulo>
                 <resumen>Database System Concepts by Silberschatz, Korth and Sudarshan is now in its 6th edition and is one of the cornerstone texts of database education.</resumen>
                 <tema>Bases de Datos</tema>
-                <idioma>Ingles<idioma>
+                <idioma>Ingles</idioma>
                 <anioPublicacion>2007</anioPublicacion>
                 <editorial>MCGraw Hill</editorial>
                 <ciudad>California</ciudad>
-                <paisPublicacion>EUA<paisPublicacion>
+                <paisPublicacion>EUA</paisPublicacion>
                 <fotoPortada>database.jpg</fotoPortada>
                 <autores>A001,K002</autores>
         </libro>
@@ -40,11 +40,11 @@
                 <titulo>JavaScript and JQuery</titulo>
                 <resumen>JavaScript was written to give readers an accurate, concise examination of JavaScript objects and their supporting nuances, such as complex values, primitive values, scope, inheritance, the head object, and more.</resumen>
                 <tema>Programacion Web</tema>
-                <idioma>Ingles<idioma>
+                <idioma>Ingles</idioma>
                 <anioPublicacion>2017</anioPublicacion>
                 <editorial>Create Space</editorial>
                 <ciudad>Boston</ciudad>
-                <paisPublicacion>EUA<paisPublicacion>
+                <paisPublicacion>EUA</paisPublicacion>
                 <fotoPortada>jscript.jpg</fotoPortada>
                 <autores>J223</autores>
         </libro>
