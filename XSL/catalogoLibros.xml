@@ -1,69 +1,51 @@
 <?xml version="1.0"?>
 <catalogoLibros xsi:noNamespaceSchemaLocation="catalogoLibrosTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<libro isbn="9788478888566">
-		<titulo>Harry Potter y el Principe Mestizo</titulo>
-		<resumen>Harry es un mago y ya esta en su sexto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>2005</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter6.jpg</fotoPortada>
+	<libro isbn="9788535211856">
+		<titulo>Computer Networks</titulo>
+		<resumen>Appropriate for courses titled Computer Networking or Introduction to Networking at both the undergraduate and graduate level in Computer Science, Electrical Engineering, CIS, MIS, and Business Departments. </resumen>
+		<tema>Redes de Computadoras</tema>
+		<idioma>Ingles</idioma>
+		<anioPublicacion>1981</anioPublicacion>
+		<editorial>Pearson</editorial>
+		<ciudad>California</ciudad>
+		<paisPublicacion>EUA</paisPublicacion>
+		<fotoPortada>networks.jpg</fotoPortada>
+		<autores>T401</autores>
 	</libro>
-	<libro isbn="9780439324663">
-		<titulo>Harry Potter y la Orden del Fenix</titulo>
-		<resumen>Harry es un mago y ya esta en su quinto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>2000</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter5.jpg</fotoPortada>
+	<libro isbn="9788871923666">
+		<titulo>Sistemas Distribuidos</titulo>
+		<resumen>En esta nueva edición se agregó un capítulo independiente sobre arquitecturas para reflejar el progreso que se ha dado en la organización de sistemas distribuidos. Otra diferencia importante es que ahora existe mucho más material acerca de sistemas descentralizados, en especial sobre computación de igual a igual (peer-to-peer)</resumen>
+		<tema>Sistemas Distribuidos</tema>
+		<idioma>Espaniol<idioma>
+		<anioPublicacion>2007</anioPublicacion>
+		<editorial>Pearson</editorial>
+		<ciudad>California</ciudad>
+		<paisPublicacion>EUA<paisPublicacion>
+		<fotoPortada>sistemasDistribuidos.jpg</fotoPortada>
+		<autores>T401,M401</autores>
 	</libro>
-	<libro isbn="9788700631625">
-		<titulo>Harry Potter y el Caliz del Fuego</titulo>
-		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>2003</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter4.jpg</fotoPortada>
-	</libro>
-	<libro isbn="9781100631625">
-		<titulo>Harry Potter y el Caliz del Fuego</titulo>
-		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>2005</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter4.jpg</fotoPortada>
-	</libro>
-	<libro isbn="9712700631625">
-		<titulo>Harry Potter y el Caliz del Fuego</titulo>
-		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>1992</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter4.jpg</fotoPortada>
-	</libro>
-	<libro isbn="9788732631625">
-		<titulo>Harry Potter y el Caliz del Fuego</titulo>
-		<resumen>Harry es un mago y ya esta en su cuarto año.</resumen>
-		<tema>Fantasia</tema>
-		<idioma>Inglés</idioma>
-		<anioPublicacion>2050</anioPublicacion>
-		<editorial>Salamandra</editorial>
-		<ciudad>México</ciudad>
-		<paisPublicacion>UK</paisPublicacion>
-		<fotoPortada>HarryPotter4.jpg</fotoPortada>
-	</libro>
+	<libro isbn="9781259252983">
+                <titulo>Database System Concepts</titulo>
+                <resumen>Database System Concepts by Silberschatz, Korth and Sudarshan is now in its 6th edition and is one of the cornerstone texts of database education.</resumen>
+                <tema>Bases de Datos</tema>
+                <idioma>Ingles<idioma>
+                <anioPublicacion>2007</anioPublicacion>
+                <editorial>MCGraw Hill</editorial>
+                <ciudad>California</ciudad>
+                <paisPublicacion>EUA<paisPublicacion>
+                <fotoPortada>database.jpg</fotoPortada>
+                <autores>A001,K002</autores>
+        </libro>
+        <libro isbn="9781548955465">
+                <titulo>JavaScript and JQuery</titulo>
+                <resumen>JavaScript was written to give readers an accurate, concise examination of JavaScript objects and their supporting nuances, such as complex values, primitive values, scope, inheritance, the head object, and more.</resumen>
+                <tema>Programacion Web</tema>
+                <idioma>Ingles<idioma>
+                <anioPublicacion>2017</anioPublicacion>
+                <editorial>Create Space</editorial>
+                <ciudad>Boston</ciudad>
+                <paisPublicacion>EUA<paisPublicacion>
+                <fotoPortada>jscript.jpg</fotoPortada>
+                <autores>J223</autores>
+        </libro>
 </catalogoLibros>
