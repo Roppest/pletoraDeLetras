@@ -16,7 +16,7 @@
 			<xs:element name="nacionalidad" type="xs:string"/>
 			<xs:element name="semblanza" type="xs:string"/>
 			<xs:element name="fotoAutor" type="xs:string"/>
-			<xs:element name="libros" type="xs:string"/>
+			<xs:element name="libros" minOccurs="1" maxOccurs="3" type="xs:string"/>
 		</xs:sequence>
 		<xs:attribute name="clave">
 			<xs:simpleType>
