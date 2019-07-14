@@ -3,8 +3,40 @@
     Created on : Jul 4, 2019, 11:02:31 AM
     Author     : Rodrigo Vázquez & Javier Erazo
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Iterator,java.util.List,java.util.ArrayList,lector.LectorXML, org.jdom.Element"%>
+<%
+	//si no llenamos algun campo..
+	if(request.getParameter("missingFields") != null){
+		String Msj = (String)request.getParameter("missingFields");
+	%>
+		<script>
+			alert('<%=Msj%>');
+		</script>	
+	<%		
+	}
+
+	//si se agrego el libro
+	if(request.getParameter("success") != null){
+		String Msj = (String)request.getParameter("success");
+	%>
+		<script>
+			alert('<%=Msj%>');
+		</script>	
+	<%		
+	}
+	
+	//si hubo un error
+	if(request.getParameter("error") != null){
+		String Msj = (String)request.getParameter("error");
+	%>
+		<script>
+			alert('<%=Msj%>');
+		</script>	
+	<%		
+	}
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,9 +76,15 @@
         %>
         </table>
       </div>
+      
+	
       <div id="formIngresaLibro">
         <form action="ingresaNuevoLibro.jsp" method="post">
           <table>
+          	<tr>
+              <td>ISBN:</td>
+              <td><input type="text" name="isbn"/></td>
+            </tr>
             <tr>
               <td>Titulo:</td>
               <td><input type="text" name="titulo"/></td>
@@ -76,6 +114,15 @@
               <td> <input type="text" name="pais"> </td>
             </tr>
             <tr>
+              <td>Foto de Portada:</td>
+              <td> <input type="text" name="fotoPortada"> </td>
+            </tr>
+            <tr>
+            <tr>
+              <td>Autores:</td>
+              <td> <input type="text" name="autores"> </td>
+            </tr>
+            <tr>
               <td>Resumen:</td>
               <td><textarea rows="5" cols="20" name="resumen"></textarea></td>
             </tr>
@@ -84,6 +131,7 @@
               <td><input type="submit" value="agregar"/></td>
             </tr>
           </table>
+          
         </form>
       </div>
     </body>
