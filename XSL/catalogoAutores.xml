@@ -1,11 +1,43 @@
 <?xml version="1.0"?>
 <catalogoAutores xsi:noNamespaceSchemaLocation="catalogoAutoresTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<autor clave="A001">
-		<nombre>J.K. Rowling</nombre>
-		<fechaNacimiento>1960-02-12</fechaNacimiento>
-		<nacionalidad>Inglesa</nacionalidad>
-		<semblanza>Nacida en uan familia de escasos recurtsos en Bristol, Reino Unido. La joven Joanne a los 27 años publicó uno de los libros más bendidos en la historia.</semblanza>
-		<fotoAutor>Rowling.jpg</fotoAutor>
-		<libros>9788700631625,9780439324663,9788478888566</libros>
+		<nombre>Abraham Silberschatz</nombre>
+		<fechaNacimiento>1950-02-12</fechaNacimiento>
+		<nacionalidad>Israeli</nacionalidad>
+		<semblanza>Profesor de Ciencias de la Computacion de la Universidad de Yale.</semblanza>
+		<fotoAutor>Avi.jpg</fotoAutor>
+		<libros>9781259252983</libros>
 	</autor>
+	<autor clave="T401">
+		<nombre>Andrew S. Tanenbaum</nombre>
+		<fechaNacimiento>1944-03-16</fechaNacimiento>
+		<nacionalidad>Estadounidense</nacionalidad>
+		<semblanza>Es conocido como el autor de MINIX, un sistema operativo basado en Unix.</semnblanza>
+		<fotoAutor>Tanenbaum.jpg</fotoAutor>
+		<libros>9788535211856,9788871923666</libros>
+	</autor>
+	<autor clave="M401">
+                <nombre>Maarten Van Steen</nombre>
+                <fechaNacimiento>1945-10-10</fechaNacimiento>
+                <nacionalidad>Holandes</nacionalidad>
+                <semblanza>Maarten van Steen works in the field of networked computer systems, with an emphasis on wireless systems as well as more traditional distributed systems.</semblanza>
+                <fotoAutor>Maarten.jpg</fotoAutor>
+                <libros>9788871923666</libros>
+        </autor>
+        <autor clave="K002">
+                <nombre>Henry F. Korth</nombre>
+                <fechaNacimiento>1950-1-09</fechaNacimiento>
+                <nacionalidad>Estadounidense</nacionalidad>
+                <semblanza>Henry F. Korth is Professor of Computer Science and Engineering at Lehigh University. From 2003 to 2009, he served as chair of the Department of Computer Science and Engineering during a period of rapid development of the newly created (2001) department. </semblanza>
+                <fotoAutor>Korth.jpg</fotoAutor>
+                <libros>9781259252983</libros>
+        </autor>
+	<autor clave="S753">
+                <nombre>S. Sudarshan</nombre>
+                <fechaNacimiento>1952-12-12</fechaNacimiento>
+                <nacionalidad>Hindi</nacionalidad>
+                <semblanza>Profesor de Ciencias de la Computacion en Indian Institute of Technology, Bombay.</semblanza>
+                <fotoAutor>Sudarshan.jpg</fotoAutor>
+                <libros>9781259252983</libros>
+        </autor>
 </catalogoAutores>
