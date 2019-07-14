@@ -110,6 +110,101 @@ public class LectorXML
     return null;
   }
 
+   public void agregarLibro(String isbn, String titulo, String resumen, String tema, String idioma, String anioPublicacion, String editorial,
+		  String ciudad, String paisPublicacion, String fotoPortada, String autores) {
+	  
+	  try{
+	  
+		  SAXBuilder constructor = new SAXBuilder();
+	      Document doc = constructor.build(rutaLibros);
+	      Element raiz = doc.getRootElement();
+	      
+	      Element libro = new Element("libro");
+	      libro.setAttribute("isbn", isbn);
+	      raiz.addContent(libro);
+	      
+	      Element hijo = new Element("titulo");
+	      hijo.setText(titulo);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("resumen");
+	      hijo.setText(resumen);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("tema");
+	      hijo.setText(tema);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("idioma");
+	      hijo.setText(idioma);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("anioPublicacion");
+	      hijo.setText(anioPublicacion);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("editorial");
+	      hijo.setText(editorial);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("ciudad");
+	      hijo.setText(ciudad);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("paisPublicacion");
+	      hijo.setText(paisPublicacion);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("fotoPortada");
+	      hijo.setText(fotoPortada);
+	      libro.addContent(hijo);
+	      
+	      hijo = new Element("autores");
+	      hijo.setText(autores);
+	      libro.addContent(hijo);
+	      
+	    //escribimos nuevamente el documento ya modificado (con el auto agregado)
+        this.escribeDocumentoXML(doc);
+	      
+		  
+	  }catch (IOException ioe){
+          ioe.printStackTrace();
+      }catch(JDOMException e){
+          e.printStackTrace();
+      }
+  
+  }
+  
+  public void escribeDocumentoXML(Element raiz){
+      System.out.println("Escribiendo el documento XML...");
+      try{
+          //creamos un objeto Document con el elemento raiz
+          Document doc = new Document(raiz);
+          XMLOutputter salida = new XMLOutputter();
+          salida.output(doc, System.out);
+          salida.setFormat(Format.getPrettyFormat());
+          salida.output(doc, new FileWriter(rutaLibros));
+      }
+      catch(IOException io){
+          io.printStackTrace();
+      }
+  }
+  
+  public void escribeDocumentoXML(Document doc){
+      System.out.println("Escribiendo el documento XML a partir de Document...");
+      try{
+          //creamos un objeto Document con el elemento raiz
+          //Document doc = new Document(raiz);
+          XMLOutputter salida = new XMLOutputter();
+          salida.output(doc, System.out);
+          salida.setFormat(Format.getPrettyFormat());
+          salida.output(doc, new FileWriter(rutaLibros));
+      }
+      catch(IOException io){
+          io.printStackTrace();
+      }
+  }
+  
   //public  extraeLibros();
   public static void main(String[] args) 
   {
