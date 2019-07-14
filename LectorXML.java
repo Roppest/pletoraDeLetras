@@ -174,6 +174,86 @@ public class LectorXML
       }
   
   }
+
+  public void eliminarLibro(String isbn) {
+	  
+	  Element libroEliminado = null;
+	  
+	  try
+	    {
+	      SAXBuilder constructor = new SAXBuilder();
+	      Document doc = constructor.build(rutaLibros);
+
+	      Element raiz = doc.getRootElement();
+	      List libros = raiz.getChildren("libro");
+	      Iterator it = libros.iterator();
+	      List eliminado;
+	      
+	      while(it.hasNext()){
+	        Element libro = (Element)it.next();
+	        
+	        if(libro.getAttributeValue("isbn").equals(isbn)){
+	          libroEliminado = libro;
+	          break;
+	        }
+	      }
+	      
+	      libroEliminado.detach();
+	      
+	      this.escribeDocumentoXML(doc, rutaLibros);
+
+	    }catch(IOException e){e.printStackTrace();
+
+	    }catch(JDOMException e){e.printStackTrace();
+	    
+	    }
+  }
+  
+  public void eliminarLibroDeAutor(String isbn) {
+	  
+	  Element libroEliminado = null;
+	  try
+	    {
+	      SAXBuilder constructor = new SAXBuilder();
+	      Document doc = constructor.build(rutaAutores);
+
+	      Element raiz = doc.getRootElement();
+	      List autores = raiz.getChildren("autor");
+	      Iterator it = autores.iterator();
+	      
+	      while(it.hasNext()){
+	    	Element autor = (Element)it.next();
+	        List libros = autor.getChildren("libro");
+	        
+	        Iterator itLibros = libros.iterator();
+	        
+	        while(itLibros.hasNext()) {
+	        	Element libro = (Element)itLibros.next();
+	        	if(libro.getText().equals(isbn)) {
+	        		libroEliminado = libro;	
+	    	        libroEliminado.detach();
+	        		break;	
+	        	}
+	        }
+	        
+    		this.escribeDocumentoXML(doc, rutaAutores);
+
+	        /*
+	         * aqui lo que se tiene que hacer es en el autor del turno, extraer todos sus libros...
+	         * de tal manera que se implemente una lista, donde cada tag es un index de la lista
+	         * despues se itera la lista, y se compara el isbn recibido con el contenido de ese index
+	         * o tal vez exista una funcion que busque el valor en la lista y lo elimine...
+	         * despues se pasaria con el siguiente autor hasta terminar.
+	         */
+	        
+	      }
+	      
+	    }catch(IOException e){;
+
+	    }catch(JDOMException e){;
+	    
+	    }
+  }
   
   public void escribeDocumentoXML(Element raiz){
       System.out.println("Escribiendo el documento XML...");
