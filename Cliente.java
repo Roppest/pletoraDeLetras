@@ -6,8 +6,16 @@ import java.util.Scanner;
 
 import org.jdom.Document;
 import org.jdom.Element;
+import org.jdom.Attribute;
+import org.jdom.Namespace;
 import org.jdom.output.XMLOutputter;
 import org.jdom.output.Format;
+
+/**
+  *Autores: Rodrigo Vázquez & Javier Erazo
+  *Es necesario compilar con jdom.jar, ya sea agregando a classpath o
+  *a lib.
+  */
 
 public class Cliente
 {
@@ -28,13 +36,14 @@ public class Cliente
 
   }
   public String crearMensaje(int opcion)throws IOException
-  {//crea el documento xml como cadena con el mensaje para el servidor
+  {//crea el documento xml como cadena para el servidor, regresa la variable mensaje
     String mensaje;
     Scanner sc = new Scanner(System.in);
+    Namespace xsNS = Namespace.getNamespace("xs","http://www.w3.org/2001/XMLSchema-instance");
     Element raiz = new Element("solicitud");
-    //raiz.setAttribute("xs:noNamespaceSchemaLocation","xsd/solicitud.xsd");
-    //raiz.setAttribute("xmlns:xs","http://www.w3.org/2001/XMLSchema-instance");
-
+    raiz.addNamespaceDeclaration(xsNS);
+    raiz.setAttribute("noNamespaceSchemaLocation","xsd/solicitud.xsd",xsNS);
+    
     Element servicio = new Element("servicio");
     servicio.setText(Integer.toString(opcion));
     raiz.addContent(servicio);
@@ -60,10 +69,10 @@ public class Cliente
     //salida.setFormat(Format.getPrettyFormat());
     salida.output(doc, System.out);
     mensaje=salida.outputString(doc);
-    System.out.println("Normal:"+mensaje);
+    //System.out.println("Normal:"+mensaje);
 
     mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
-    System.out.println("Mod:" + mensaje);
+    //System.out.println("Mod:" + mensaje);
     return mensaje;
   }
 
@@ -101,7 +110,6 @@ public class Cliente
   {
 
   }
-
 
 
   public static void main(String[] args) throws IOException
