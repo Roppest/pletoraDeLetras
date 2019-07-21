@@ -36,14 +36,14 @@ public class Cliente
 
   }
   public String crearMensaje(int opcion)throws IOException
-  {//crea el documento xml como cadena para el servidor, regresa la variable mensaje
+  {//crea el documento xml como cadena con el mensaje para el servidor
     String mensaje;
     Scanner sc = new Scanner(System.in);
     Namespace xsNS = Namespace.getNamespace("xs","http://www.w3.org/2001/XMLSchema-instance");
     Element raiz = new Element("solicitud");
     raiz.addNamespaceDeclaration(xsNS);
     raiz.setAttribute("noNamespaceSchemaLocation","xsd/solicitud.xsd",xsNS);
-    
+
     Element servicio = new Element("servicio");
     servicio.setText(Integer.toString(opcion));
     raiz.addContent(servicio);
@@ -53,8 +53,7 @@ public class Cliente
     {
       case 1://servicio de busqueda por anio
         System.out.println("Escribe el anio:");
-        parametro.setAttribute("tipo","anioPublicacion");
-        parametro.setText(sc.nextLine());
+        parametro.setAttribute("anioPublicacion",sc.nextLine());
       break;
       case 2://servicio de busqueda por isbn
         System.out.println("Escribe el ISBN:");
