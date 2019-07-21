@@ -3,7 +3,7 @@
   <xs:element name="solicitud">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="servicio">
+        <xs:element name="servicio" minOccurs="1" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:integer">
               <xs:minInclusive value="1"/>
@@ -11,23 +11,26 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="paramentro" type="tipoParametro"/>
+        <xs:element name="paramentro" type="tipoParametro" minOccurs="1" maxOccurs="1"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 
   <xs:complexType name="tipoParametro">
-    <xs:simpleContent>
-      <xs:extension base="xs:integer"/>
-      <xs:attribute name="tipo">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="anioPublicacion"/>
-            <xs:enumeration value="isbn"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-    </xs:simpleContent>
+    <xs:attribute name="anioPublicacion">
+      <xs:simpleType>
+        <xs:restriction base="xs:string"/>
+          <xs:pattern value="[0-9]{4}"/>
+        <xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="isbn">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9]{13}"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
   </xs:complexType>
 
 </xs:schema>
