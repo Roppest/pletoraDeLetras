@@ -1,8 +1,13 @@
 import java.net.*;
 import java.io.*;
 import java.util.Scanner;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+//import javax.xml.parsers.DocumentBuilder;
+//import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.output.XMLOutputter;
+import org.jdom.output.Format;
 
 public class Cliente
 {
@@ -22,17 +27,44 @@ public class Cliente
     }catch(IOException io){System.out.println(io);conectado = false;}
 
   }
-  public String crearMensaje(int opcion)
-  {//crea el documento xml con el mensaje para el servidor
+  public String crearMensaje(int opcion)throws IOException
+  {//crea el documento xml como cadena con el mensaje para el servidor
+    String mensaje;
+    Scanner sc = new Scanner(System.in);
+    Element raiz = new Element("solicitud");
+    //raiz.setAttribute("xs:noNamespaceSchemaLocation","xsd/solicitud.xsd");
+    //raiz.setAttribute("xmlns:xs","http://www.w3.org/2001/XMLSchema-instance");
+
+    Element servicio = new Element("servicio");
+    servicio.setText(Integer.toString(opcion));
+    raiz.addContent(servicio);
+
+    Element parametro = new Element("parametro");
     switch(opcion)
     {
-      case 1:
+      case 1://servicio de busqueda por anio
+        System.out.println("Escribe el anio:");
+        parametro.setAttribute("tipo","anioPublicacion");
+        parametro.setText(sc.nextLine());
       break;
-      case 2:
+      case 2://servicio de busqueda por isbn
+        System.out.println("Escribe el ISBN:");
+        parametro.setAttribute("isbn",sc.nextLine());
       break;
       default: return null;
     }
-    return "hola";
+    raiz.addContent(parametro);
+
+    Document doc = new Document(raiz);
+    XMLOutputter salida = new XMLOutputter();
+    //salida.setFormat(Format.getPrettyFormat());
+    salida.output(doc, System.out);
+    mensaje=salida.outputString(doc);
+    System.out.println("Normal:"+mensaje);
+
+    mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
+    System.out.println("Mod:" + mensaje);
+    return mensaje;
   }
 
   public int elegirOpcion()
@@ -52,7 +84,7 @@ public class Cliente
 
   public void mandarMensaje(String mensaje)throws IOException
   {
-    out.println(mensaje);
+    out.print(mensaje);
     out.flush();
   }
 
@@ -79,7 +111,7 @@ public class Cliente
     {
       System.out.println("Cliente conectado: "+cliente.getConectado());
       cliente.mostrarMenu();
-      cliente.mandarMensaje(Integer.toString(cliente.elegirOpcion()));
+      cliente.mandarMensaje(cliente.crearMensaje((cliente.elegirOpcion())));
     }
     else
       System.out.println("Cliente no pudo conectarse.");
