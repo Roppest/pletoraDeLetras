@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogoLibros xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalogoLibrosTipo.xsd">
-  <libro isbn="9788535211856">
-    <titulo>Computer Networks</titulo>
-    <resumen>Appropriate for courses titled Computer Networking or Introduction to Networking at both the undergraduate and graduate level in Computer Science, Electrical Engineering, CIS, MIS, and Business Departments.</resumen>
-    <tema>Redes de Computadoras</tema>
-    <idioma>Ingles</idioma>
-    <anioPublicacion>1981</anioPublicacion>
-    <editorial>Pearson</editorial>
-    <ciudad>California</ciudad>
-    <paisPublicacion>EUA</paisPublicacion>
-    <fotoPortada>networks.jpg</fotoPortada>
-    <autor>T401</autor>
-  </libro>
   <libro isbn="9788871923666">
     <titulo>Sistemas Distribuidos</titulo>
-    <resumen>En esta nueva edici�n se agreg� un cap�tulo independiente sobre arquitecturas para reflejar el progreso que se ha dado en la organizaci�n de sistemas distribuidos. Otra diferencia importante es que ahora existe mucho m�s material acerca de sistemas descentralizados, en especial sobre computaci�n de igual a igual (peer-to-peer)</resumen>
+    <resumen>En esta nueva edici?n se agreg? un cap?tulo independiente sobre arquitecturas para reflejar el progreso que se ha dado en la organizaci?n de sistemas distribuidos. Otra diferencia importante es que ahora existe mucho m?s material acerca de sistemas descentralizados, en especial sobre computaci?n de igual a igual (peer-to-peer)</resumen>
     <tema>Sistemas Distribuidos</tema>
     <idioma>Espaniol</idioma>
     <anioPublicacion>2007</anioPublicacion>
@@ -50,4 +38,17 @@
     <fotoPortada>jscript.jpg</fotoPortada>
     <autor>J223</autor>
   </libro>
+  <libro isbn="9788535211856">
+    <titulo>Computer Networks</titulo>
+    <resumen>Appropriate for courses titled Computer Networking or Introduction to Networking at both the undergraduate and graduate level in Computer Science, Electrical Engineering, CIS, MIS, and Business Departments.</resumen>
+    <tema>Redes de Computadoras</tema>
+    <idioma>Ingles</idioma>
+    <anioPublicacion>1981</anioPublicacion>
+    <editorial>Pearson</editorial>
+    <ciudad>California</ciudad>
+    <paisPublicacion>EUA</paisPublicacion>
+    <fotoPortada>networks.jpg</fotoPortada>
+    <autor>T401</autor>
+  </libro>
 </catalogoLibros>
+

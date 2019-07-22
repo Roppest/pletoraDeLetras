@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<catalogoAutores xsi:noNamespaceSchemaLocation="catalogoAutoresTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<catalogoAutores xsi:noNamespaceSchemaLocation="../xsd/catalogoAutoresTipo.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<autor clave="A001">
 		<nombre>Abraham Silberschatz</nombre>
 		<fechaNacimiento>1950-02-12</fechaNacimiento>
@@ -27,7 +27,7 @@
         </autor>
         <autor clave="K002">
                 <nombre>Henry F. Korth</nombre>
-                <fechaNacimiento>1950-1-09</fechaNacimiento>
+                <fechaNacimiento>1950-01-09</fechaNacimiento>
                 <nacionalidad>Estadounidense</nacionalidad>
                 <semblanza>Henry F. Korth is Professor of Computer Science and Engineering at Lehigh University. From 2003 to 2009, he served as chair of the Department of Computer Science and Engineering during a period of rapid development of the newly created (2001) department. </semblanza>
                 <fotoAutor>Korth.jpg</fotoAutor>
@@ -43,10 +43,11 @@
         </autor>
         <autor clave="J223">
                 <nombre>Jon Duckett</nombre>
-                <fechaNacimiento>1950-3-12</fechaNacimiento>
+                <fechaNacimiento>1950-03-12</fechaNacimiento>
                 <nacionalidad>Hindi</nacionalidad>
                 <semblanza>Jon Duckett has been designing and building web sites for over a decade, working with global brands, and has authored and co-authored over a dozen books on web design, programming, usability and accessibility.</semblanza>
                 <fotoAutor>Sudarshan.jpg</fotoAutor>
                 <libro>9781548955465</libro>
         </autor>
 </catalogoAutores>
+

@@ -5,18 +5,24 @@
 	
 	<xs:complexType name="tipoCatalogoAutores">	
 		<xs:sequence>
-			<xs:element name="autor" type="tipoAutor" minOccurs="1" maxOccurs="5"/>
+			<xs:element name="autor" type="tipoAutor" minOccurs="1" maxOccurs="100"/>
 		</xs:sequence>
 		
 	</xs:complexType>
 	<xs:complexType name="tipoAutor">
 		<xs:sequence>
-			<xs:element name="nombre" type="xs:string"/>
-			<xs:element name="fechaNacimiento" type="xs:date"/>
-			<xs:element name="nacionalidad" type="xs:string"/>
-			<xs:element name="semblanza" type="xs:string"/>
-			<xs:element name="fotoAutor" type="xs:string"/>
-			<xs:element name="libros" minOccurs="1" maxOccurs="3" type="xs:string"/>
+			<xs:element name="nombre" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fechaNacimiento" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="nacionalidad" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="semblanza" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fotoAutor" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="libro" minOccurs="0" maxOccurs="20">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="clave">
 			<xs:simpleType>
