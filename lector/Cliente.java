@@ -5,6 +5,7 @@ package lector;
 import java.net.*;
 import java.io.*;
 import java.util.Scanner;
+import java.lang.InterruptedException;
 //import javax.xml.parsers.DocumentBuilder;
 //import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -33,8 +34,7 @@ public class Cliente
     try
     {
       socket = new Socket("localhost", 8081);
-      InputStreamReader input = new InputStreamReader(socket.getInputStream());
-      in = new BufferedReader(input);
+
       out = new PrintWriter(socket.getOutputStream());
       conectado = true;
     }catch(IOException io){System.out.println(io);conectado = false;}
@@ -112,7 +112,10 @@ public class Cliente
 
   public void recibirRespuesta()throws IOException
   {
-    System.out.println(in.readLine());
+    InputStreamReader input = new InputStreamReader(socket.getInputStream());
+    in = new BufferedReader(input);
+    String respuesta = in.readLine();
+    System.out.println(respuesta);
   }
 
 
@@ -126,6 +129,12 @@ public class Cliente
       //mandamos mensaje a servidor
       cliente.mandarMensaje(cliente.crearMensaje((cliente.elegirOpcion())));
       //recibimos mensaje de servidor
+      try
+      {
+        System.out.println("...");
+        Thread.sleep(1000);
+      }catch(InterruptedException ie){ie.printStackTrace();}
+
       //cliente.recibirRespuesta();
 
     }
