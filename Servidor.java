@@ -1,5 +1,5 @@
 /**
-  *Ejecucion: java -cp .:jdom.jar: lector.Servidor 
+  *Ejecucion: java -cp .:jdom.jar: lector.Servidor
   */
 package lector;
 import java.net.*;
@@ -15,7 +15,9 @@ import org.jdom.output.XMLOutputter;
 import org.jdom.output.Format;
 import org.jdom.JDOMException;
 
-
+import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 public class Servidor
 {
@@ -29,9 +31,15 @@ public class Servidor
     String xsd = "lector/xsd/solicitud.xsd";
     XMLValidator validador = new XMLValidator();
     LectorXML lector = new LectorXML();
+    PrintWriter out;
+
+
+
+
     while(solicitudes < 5)
     {
       Socket socket = serverSocket.accept();
+
       InputStreamReader in = new InputStreamReader(socket.getInputStream());
       BufferedReader buff = new BufferedReader(in);
 
@@ -53,18 +61,61 @@ public class Servidor
 
           Element raiz = doc.getRootElement();
           int servicio = Integer.parseInt(raiz.getChild("servicio").getText());
-
+          //System.out.println("Servicio "+servicio);
           switch(servicio)
           {
             case 1: //mostrar libros x anio
-              //List<Element> lista = lector.obtenerLibros(String anio);
-              System.out.println("servicio1");
+              String anio =  raiz.getChild("parametro").getAttributeValue("anioPublicacion");
+              //System.out.println("buscando anio" + anio);
+              List<Element> lista = lector.obtenerLibros(anio);
+              System.out.println(lista);
+              if(lista.size() == 0)
+              {
+                //creamos XML con respuesta
+
+                out = new PrintWriter(socket.getOutputStream());
+                out.print("No hay libros con ese anio");
+                out.flush();
+
+                //bw.write("No se encontraron libros con ese anio.");
+                //bw.flush();
+              }
+              else
+              {
+                //creamos catalogo de libros para verificar y mandar
+                String mensaje;
+                Namespace xsNS = Namespace.getNamespace("xsi","http://www.w3.org/2001/XMLSchema-instance");
+                Element root = new Element("catalogoLibros");
+                System.out.println("Root:" +root.getName());
+                root.addNamespaceDeclaration(xsNS);
+                root.setAttribute("noNamespaceSchemaLocation","xsd/catalogoLibrosTipo.xsd",xsNS);
+                Iterator it = lista.iterator();
+                while(it.hasNext())
+                {
+                  Element libro =(Element)it.next();
+                  //Element copiaLibro = libro.clone();
+                  libro.detach();
+                  //System.out.println("libro: "+libro.getChild("titulo").getText());
+                  root.addContent(libro);
+                }
+                Document docRespuesta = new Document(root);
+                XMLOutputter salida = new XMLOutputter();
+                mensaje = salida.outputString(docRespuesta);
+                mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
+                System.out.println("Mensaje a cliente: \n"+mensaje);
+
+
+              }
+
             break;
             case 2: //mostrar libro x isbn
+              String isbn = raiz.getChild("parametro").getAttributeValue("isbn");
+              Element libro = lector.obtenerLibro(isbn);
             break;
             default:
             break;
           }
+
         }catch(JDOMException e){e.printStackTrace();}
       }
       else
