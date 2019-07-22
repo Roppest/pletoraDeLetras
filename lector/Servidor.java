@@ -73,7 +73,7 @@ public class Servidor
               {
                 //creamos XML con respuesta
 
-                out = new PrintWriter(socket.getOutputStream());
+                out = new PrintWriter(socket.getOutputStream(),true);
                 out.println("No hay libros con ese anio");
                 out.flush();
 
@@ -99,26 +99,26 @@ public class Servidor
                 }
                 Document docRespuesta = new Document(root);
                 XMLOutputter salida = new XMLOutputter();
-                salida.setFormat(Format.getPrettyFormat());
+                //salida.setFormat(Format.getPrettyFormat());
                 mensaje = salida.outputString(docRespuesta);
                 fw = new java.io.FileWriter("respuesta.xml");
+                mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
 
                 fw.write(mensaje);
                 fw.close();
-                mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
                 //System.out.println("Mensaje a cliente: \n"+mensaje);
 
                 //validar xml-------------------
-
 
                 if(validador.validate("respuesta.xml","lector/xsd/catalogoLibrosTipo.xsd"))
                   System.out.println("Respuesta valida");
                 else
                   System.out.println("Respuesta invalida");
                 //mandamos mensaje a cliente
-                out = new PrintWriter(socket.getOutputStream());
+                out = new PrintWriter(socket.getOutputStream(),true);
                 out.println(mensaje);
                 out.flush();
+                System.out.println("Respuesta Mandada");
 
               }
 
@@ -152,7 +152,7 @@ public class Servidor
 
                 Document docRespuesta = new Document(root);
                 XMLOutputter salida = new XMLOutputter();
-                salida.setFormat(Format.getPrettyFormat());
+                //salida.setFormat(Format.getPrettyFormat());
                 mensaje = salida.outputString(docRespuesta);
                 mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
                 //System.out.println("Mensaje a cliente: \n"+mensaje);
@@ -166,9 +166,10 @@ public class Servidor
                 else
                   System.out.println("Respuesta invalida");
                 //mandar mensaje
-                out = new PrintWriter(socket.getOutputStream());
-                out.println(mensaje+"\n");
+                out = new PrintWriter(socket.getOutputStream(),true);
+                out.println(mensaje);
                 out.flush();
+                System.out.println("Respuesta Enviada");
               }
             break;
             default:
