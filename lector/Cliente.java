@@ -6,6 +6,8 @@ import java.net.*;
 import java.io.*;
 import java.util.Scanner;
 import java.lang.InterruptedException;
+import java.util.List;
+import java.util.Iterator;
 //import javax.xml.parsers.DocumentBuilder;
 //import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -16,6 +18,8 @@ import org.jdom.Namespace;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 import org.jdom.output.Format;
+import org.jdom.JDOMException;
+
 
 
 import javax.xml.transform.TransformerFactory;
@@ -124,7 +128,7 @@ public class Cliente
   /*  String respuesta = in.readLine();
     System.out.println(respuesta);*/
     //lee archivo respuesta
-    File respuesta = new File("respuesta.xml");
+  /*  File respuesta = new File("respuesta.xml");
     in = new BufferedReader(new FileReader(respuesta));
     TransformerFactory tf = TransformerFactory.newInstance();
     Transformer transformer;
@@ -138,8 +142,23 @@ public class Cliente
       String xmlString = writer.getBuffer().toString();
       System.out.println(xmlString);
     }catch (TransformerException e){e.printStackTrace();}
-    catch (Exception e){e.printStackTrace();}
+    catch (Exception e){e.printStackTrace();}*/
     //System.out.println(in.readLine());
+    try
+    {
+      SAXBuilder constructor = new SAXBuilder();
+      Document doc = constructor.build("respuesta.xml");
+      Element raiz = doc.getRootElement();
+      List lista = raiz.getChildren();
+      Iterator it = lista.iterator();
+      System.out.println("\n-------------------------");
+      while(it.hasNext())
+      {
+        Element libro = (Element)it.next();
+        System.out.println(libro.getChildText("titulo"));
+      }
+    }catch(JDOMException e){e.printStackTrace();}
+
   }
 
 
