@@ -68,7 +68,7 @@ public class Servidor
               String anio =  raiz.getChild("parametro").getAttributeValue("anioPublicacion");
               //System.out.println("buscando anio" + anio);
               List<Element> lista = lector.obtenerLibros(anio);
-              System.out.println(lista);
+              //System.out.println(lista);
               if(lista.size() == 0)
               {
                 //creamos XML con respuesta
@@ -84,27 +84,67 @@ public class Servidor
               {
                 //creamos catalogo de libros para verificar y mandar
                 String mensaje;
-                Scanner sc = new Scanner(System.in);
                 Namespace xsNS = Namespace.getNamespace("xsi","http://www.w3.org/2001/XMLSchema-instance");
-                Element raiz = new Element("catalogoLibros");
-                raiz.addNamespaceDeclaration(xsNS);
-                raiz.setAttribute("noNamespaceSchemaLocation","xsd/catalogoLibrosTipo.xsd",xsNS);
+                Element root = new Element("catalogoLibros");
+                System.out.println("Root:" +root.getName());
+                root.addNamespaceDeclaration(xsNS);
+                root.setAttribute("noNamespaceSchemaLocation","xsd/catalogoLibrosTipo.xsd",xsNS);
                 Iterator it = lista.iterator();
                 while(it.hasNext())
                 {
-                  Element autor = new Element("libro");
-                  autor.setAttribute("isbn",it.)
+                  Element libro =(Element)it.next();
+                  libro.detach();//porque ya tiene padre catalogoLibros
+                  //System.out.println("libro: "+libro.getChild("titulo").getText());
+                  root.addContent(libro);
                 }
+                Document docRespuesta = new Document(root);
+                XMLOutputter salida = new XMLOutputter();
+                mensaje = salida.outputString(docRespuesta);
+                mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
+                System.out.println("Mensaje a cliente: \n"+mensaje);
+                //mandar mensaje
               }
 
             break;
             case 2: //mostrar libro x isbn
               String isbn = raiz.getChild("parametro").getAttributeValue("isbn");
               Element libro = lector.obtenerLibro(isbn);
+              //System.out.println(libro);
+              if(libro == null)
+              {
+                //creamos XML con respuesta
+
+                out = new PrintWriter(socket.getOutputStream());
+                out.print("No hay libros con ese anio");
+                out.flush();
+
+              }
+              else
+              {
+                //creamos catalogo de libros para verificar y mandar
+                String mensaje;
+                Namespace xsNS = Namespace.getNamespace("xsi","http://www.w3.org/2001/XMLSchema-instance");
+                Element root = new Element("catalogoLibros");
+                System.out.println("Root:" +root.getName());
+                root.addNamespaceDeclaration(xsNS);
+                root.setAttribute("noNamespaceSchemaLocation","xsd/catalogoLibrosTipo.xsd",xsNS);
+
+                libro.detach();//porque ya tiene padre catalogoLibros
+                //System.out.println("libro: "+libro.getChild("titulo").getText());
+                root.addContent(libro);
+
+                Document docRespuesta = new Document(root);
+                XMLOutputter salida = new XMLOutputter();
+                mensaje = salida.outputString(docRespuesta);
+                mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
+                System.out.println("Mensaje a cliente: \n"+mensaje);
+                //mandar mensaje
+              }
             break;
             default:
             break;
           }
+
         }catch(JDOMException e){e.printStackTrace();}
       }
       else
