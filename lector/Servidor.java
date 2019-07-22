@@ -74,7 +74,7 @@ public class Servidor
                 //creamos XML con respuesta
 
                 out = new PrintWriter(socket.getOutputStream());
-                out.print("No hay libros con ese anio");
+                out.println("No hay libros con ese anio");
                 out.flush();
 
                 //bw.write("No se encontraron libros con ese anio.");
@@ -86,9 +86,9 @@ public class Servidor
                 String mensaje;
                 Namespace xsNS = Namespace.getNamespace("xsi","http://www.w3.org/2001/XMLSchema-instance");
                 Element root = new Element("catalogoLibros");
-                System.out.println("Root:" +root.getName());
+                //System.out.println("Root:" +root.getName());
                 root.addNamespaceDeclaration(xsNS);
-                root.setAttribute("noNamespaceSchemaLocation","xsd/catalogoLibrosTipo.xsd",xsNS);
+                root.setAttribute("noNamespaceSchemaLocation","catalogoLibrosTipo.xsd",xsNS);
                 Iterator it = lista.iterator();
                 while(it.hasNext())
                 {
@@ -99,10 +99,27 @@ public class Servidor
                 }
                 Document docRespuesta = new Document(root);
                 XMLOutputter salida = new XMLOutputter();
+                salida.setFormat(Format.getPrettyFormat());
                 mensaje = salida.outputString(docRespuesta);
+                fw = new java.io.FileWriter("respuesta.xml");
+
+                fw.write(mensaje);
+                fw.close();
                 mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
-                System.out.println("Mensaje a cliente: \n"+mensaje);
-                //mandar mensaje
+                //System.out.println("Mensaje a cliente: \n"+mensaje);
+
+                //validar xml-------------------
+
+
+                if(validador.validate("respuesta.xml","lector/xsd/catalogoLibrosTipo.xsd"))
+                  System.out.println("Respuesta valida");
+                else
+                  System.out.println("Respuesta invalida");
+                //mandamos mensaje a cliente
+                out = new PrintWriter(socket.getOutputStream());
+                out.println(mensaje);
+                out.flush();
+
               }
 
             break;
@@ -125,9 +142,9 @@ public class Servidor
                 String mensaje;
                 Namespace xsNS = Namespace.getNamespace("xsi","http://www.w3.org/2001/XMLSchema-instance");
                 Element root = new Element("catalogoLibros");
-                System.out.println("Root:" +root.getName());
+                //System.out.println("Root:" +root.getName());
                 root.addNamespaceDeclaration(xsNS);
-                root.setAttribute("noNamespaceSchemaLocation","xsd/catalogoLibrosTipo.xsd",xsNS);
+                root.setAttribute("noNamespaceSchemaLocation","catalogoLibrosTipo.xsd",xsNS);
 
                 libro.detach();//porque ya tiene padre catalogoLibros
                 //System.out.println("libro: "+libro.getChild("titulo").getText());
@@ -135,10 +152,23 @@ public class Servidor
 
                 Document docRespuesta = new Document(root);
                 XMLOutputter salida = new XMLOutputter();
+                salida.setFormat(Format.getPrettyFormat());
                 mensaje = salida.outputString(docRespuesta);
                 mensaje = mensaje.replace("\n","").replace("\r","");//elimina el line break
-                System.out.println("Mensaje a cliente: \n"+mensaje);
+                //System.out.println("Mensaje a cliente: \n"+mensaje);
+
+                fw = new java.io.FileWriter("respuesta.xml");
+
+                fw.write(mensaje);
+                fw.close();
+                if(validador.validate("respuesta.xml","lector/xsd/catalogoLibrosTipo.xsd"))
+                  System.out.println("Respuesta valida");
+                else
+                  System.out.println("Respuesta invalida");
                 //mandar mensaje
+                out = new PrintWriter(socket.getOutputStream());
+                out.println(mensaje+"\n");
+                out.flush();
               }
             break;
             default:
