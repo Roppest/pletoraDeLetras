@@ -17,6 +17,14 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 import org.jdom.output.Format;
 
+
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerConfigurationException;
+
 /**
   *Autores: Rodrigo Vázquez & Javier Erazo
   *Es necesario compilar con jdom.jar, ya sea agregando a classpath o
@@ -34,7 +42,8 @@ public class Cliente
     try
     {
       socket = new Socket("localhost", 8081);
-
+      InputStreamReader input = new InputStreamReader(socket.getInputStream());
+      in = new BufferedReader(input);
       out = new PrintWriter(socket.getOutputStream());
       conectado = true;
     }catch(IOException io){System.out.println(io);conectado = false;}
@@ -112,10 +121,25 @@ public class Cliente
 
   public void recibirRespuesta()throws IOException
   {
-    InputStreamReader input = new InputStreamReader(socket.getInputStream());
-    in = new BufferedReader(input);
-    String respuesta = in.readLine();
-    System.out.println(respuesta);
+  /*  String respuesta = in.readLine();
+    System.out.println(respuesta);*/
+    //lee archivo respuesta
+    File respuesta = new File("respuesta.xml");
+    in = new BufferedReader(new FileReader(respuesta));
+    TransformerFactory tf = TransformerFactory.newInstance();
+    Transformer transformer;
+    try
+    {
+      transformer = tf.newTransformer();
+      StringWriter writer = new StringWriter();
+
+      transformer.transform(new StreamSource("respuesta.xml"), new StreamResult(writer));
+
+      String xmlString = writer.getBuffer().toString();
+      System.out.println(xmlString);
+    }catch (TransformerException e){e.printStackTrace();}
+    catch (Exception e){e.printStackTrace();}
+    //System.out.println(in.readLine());
   }
 
 
@@ -135,7 +159,7 @@ public class Cliente
         Thread.sleep(1000);
       }catch(InterruptedException ie){ie.printStackTrace();}
 
-      //cliente.recibirRespuesta();
+      cliente.recibirRespuesta();
 
     }
     else
