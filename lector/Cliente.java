@@ -151,11 +151,29 @@ public class Cliente
       Element raiz = doc.getRootElement();
       List lista = raiz.getChildren();
       Iterator it = lista.iterator();
-      System.out.println("\n-------------------------");
       while(it.hasNext())
-      {
+      {//imprimimos los elementos del/los libros
+        System.out.println("\n---------------------------------------------------------");
         Element libro = (Element)it.next();
         System.out.println(libro.getChildText("titulo"));
+        System.out.print("ISBN: " +libro.getAttributeValue("isbn")+ "\tTema: "+libro.getChildText("tema")+"\n");
+        System.out.println(libro.getChildText("resumen"));
+        System.out.println("Idioma: "+libro.getChildText("idioma"));
+        System.out.println(libro.getChildText("editorial") + " "+libro.getChildText("paisPublicacion")+", "+libro.getChildText("ciudad") +" "+ libro.getChildText("anioPublicacion"));
+        //Cada libro puede tener vairos autores
+        List autores = libro.getChildren("autor");
+        Iterator itAutores = autores.iterator();
+        System.out.print("Autores: ");
+        //utilizamos lector para buscar el nombre del autor por clabe.
+        LectorXML lector = new LectorXML();
+        while(itAutores.hasNext())
+        {
+          Element autor = (Element)itAutores.next();
+          System.out.print(lector.obtenerAutor(autor.getValue()).getChildText("nombre")+", ");
+        }
+        System.out.print("\n");
+
+
       }
     }catch(JDOMException e){e.printStackTrace();}
 
