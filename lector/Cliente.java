@@ -1,5 +1,5 @@
 /**
-  * Ejecucion: java -cp .:jdom.jar: lector.Cliente 
+  * Ejecucion: java -cp .:jdom.jar: lector.Cliente
   */
 package lector;
 import java.net.*;
@@ -110,9 +110,9 @@ public class Cliente
     System.out.println(" ------------------------");
   }
 
-  public void mostrarMensaje()
+  public void recibirRespuesta()throws IOException
   {
-
+    System.out.println(in.readLine());
   }
 
 
@@ -126,7 +126,7 @@ public class Cliente
       //mandamos mensaje a servidor
       cliente.mandarMensaje(cliente.crearMensaje((cliente.elegirOpcion())));
       //recibimos mensaje de servidor
-      cliente.mostrarMensaje();
+      //cliente.recibirRespuesta();
 
     }
     else
